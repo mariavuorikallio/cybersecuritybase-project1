@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marketplace</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}
+                <!-- FLAW 1: Adding items to cart via GET request -->
+                <a href="{% url 'cart' product.id %}">Add to Cart</a>
+                
+                <!-- FIX (commented out):
+                <form action="{% url 'cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Add to Cart</button>
+                </form>
+                -->
+
+            </li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{% url 'view_cart' %}">View Cart</a> |
+        <a href="{% url 'checkout' %}">Checkout</a>
+    </p>
+</body>
+</html>
