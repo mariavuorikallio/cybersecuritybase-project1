@@ -53,6 +53,16 @@ def checkoutView(request):
     total_price = sum(item.price for item in cart_items)
     return render(request, 'marketplace/checkout.html', {'cart': cart_items, 'total': total_price})
 
+# FIX (commented out):
+# from django.contrib.auth.decorators import login_required
+#
+# @login_required
+# def checkoutView(request):
+#     cart_ids = request.session.get('cart', [])
+#     cart_items = Product.objects.filter(id__in=cart_ids)
+#     total_price = sum(item.price for item in cart_items)
+#     return render(request, 'marketplace/checkout.html', {'cart': cart_items, 'total': total_price})
+
 def placeOrderView(request):
     request.session['cart'] = []
     return render(request, 'marketplace/order_success.html')
