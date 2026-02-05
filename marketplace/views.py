@@ -57,3 +57,18 @@ def placeOrderView(request):
     request.session['cart'] = []
     return render(request, 'marketplace/order_success.html')
 
+def searchProduct(request):
+    query = request.GET.get("q", "")
+    # FLAW 5: SQL Injection – käyttäjän syöte suoraan SQL-kyselyssä
+    products = Product.objects.raw(
+        f"SELECT * FROM marketplace_product WHERE name LIKE '%{query}%'"
+    )
+    return render(request, "marketplace/product_list.html", {"products": products})
+
+# FIX (commented out):
+# def searchProduct(request):
+#     query = request.GET.get("q", "")
+#     products = Product.objects.filter(name__icontains=query)
+#     return render(request, "marketplace/product_list.html", {"products": products})
+
+

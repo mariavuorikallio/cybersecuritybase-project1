@@ -6,21 +6,24 @@
 </head>
 <body>
     <h1>Products</h1>
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="q" placeholder="Search products">
+        <button type="submit">Search</button>
+    </form>
     <ul>
         {% for product in products %}
             <li>
-                <!-- Link to the product detail page -->
-                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}
-                
+                <a href="{% url 'product_detail' product.id %}">
+                    {{ product.name }}
+                </a> - ${{ product.price }}
+
                 <!-- FLAW 1: Adding to cart via GET request -->
-                <!-- Vulnerable behavior: the user can add items to the cart using a GET request without CSRF protection -->
                 <a href="{% url 'cart' product.id %}">Add to Cart</a>
             </li>
         {% empty %}
             <li>No products available.</li>
         {% endfor %}
     </ul>
-
     <p>
         <a href="{% url 'view_cart' %}">View Cart</a> |
         <a href="{% url 'checkout' %}">Checkout</a>
