@@ -59,7 +59,7 @@ def placeOrderView(request):
 
 def searchProduct(request):
     query = request.GET.get("q", "")
-    # FLAW 5: SQL Injection – käyttäjän syöte suoraan SQL-kyselyssä
+    # FLAW 5: SQL Injection – user input is directly used in a raw SQL query
     products = Product.objects.raw(
         f"SELECT * FROM marketplace_product WHERE name LIKE '%{query}%'"
     )
@@ -68,7 +68,7 @@ def searchProduct(request):
 # FIX (commented out):
 # def searchProduct(request):
 #     query = request.GET.get("q", "")
+#     # Use Django ORM to safely filter products and prevent SQL Injection
 #     products = Product.objects.filter(name__icontains=query)
 #     return render(request, "marketplace/product_list.html", {"products": products})
-
 
