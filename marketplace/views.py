@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Product
 
@@ -47,6 +48,7 @@ def viewCart(request):
 #     cart_items = Product.objects.filter(id__in=cart_ids)
 #     return render(request, 'marketplace/cart.html', {'cart': cart_items})
 
+# FLAW 5: Broken Authentication / Authorization – checkout accessible without login
 def checkoutView(request):
     cart_ids = request.session.get('cart', [])
     cart_items = Product.objects.filter(id__in=cart_ids)
@@ -69,7 +71,7 @@ def placeOrderView(request):
 
 def searchProduct(request):
     query = request.GET.get("q", "")
-    # FLAW 5: SQL Injection – user input is directly used in a raw SQL query
+    # FLAW 4: SQL Injection – user input is directly used in a raw SQL query
     products = Product.objects.raw(
         f"SELECT * FROM marketplace_product WHERE name LIKE '%{query}%'"
     )
