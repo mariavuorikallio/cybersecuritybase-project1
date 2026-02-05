@@ -34,9 +34,18 @@ def addToCartView(request, pid):
 
 def viewCart(request):
     cart_ids = request.session.get('cart', [])
-    print("Cart session contents:", cart_ids)
+    print("Cart session contents:", cart_ids)  # <--- FLAW 3: Sensitive data is logged
+
     cart_items = Product.objects.filter(id__in=cart_ids)
     return render(request, 'marketplace/cart.html', {'cart': cart_items})
+
+# FIX (commented out):
+# def viewCart(request):
+#     cart_ids = request.session.get('cart', [])
+#     # Do not log sensitive session data in production
+#     # print("Cart session contents:", cart_ids)
+#     cart_items = Product.objects.filter(id__in=cart_ids)
+#     return render(request, 'marketplace/cart.html', {'cart': cart_items})
 
 def checkoutView(request):
     cart_ids = request.session.get('cart', [])
