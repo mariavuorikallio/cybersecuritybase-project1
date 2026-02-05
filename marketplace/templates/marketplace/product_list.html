@@ -9,17 +9,12 @@
     <ul>
         {% for product in products %}
             <li>
+                <!-- Link to the product detail page -->
                 <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}
-                <!-- FLAW 1: Adding items to cart via GET request -->
-                <a href="{% url 'cart' product.id %}">Add to Cart</a>
                 
-                <!-- FIX (commented out):
-                <form action="{% url 'cart' product.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Add to Cart</button>
-                </form>
-                -->
-
+                <!-- FLAW 1: Adding to cart via GET request -->
+                <!-- Vulnerable behavior: the user can add items to the cart using a GET request without CSRF protection -->
+                <a href="{% url 'cart' product.id %}">Add to Cart</a>
             </li>
         {% empty %}
             <li>No products available.</li>
