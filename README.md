@@ -1,8 +1,7 @@
 # Cybersecurity Base - Project 1
 
-This is the first project for the Cybersecurity Base course (2026). 
-The application is a simple Django-based marketplace designed to demonstrate 
-common web vulnerabilities (OWASP Top 10).
+* This is the first project for the Cybersecurity Base course (2026). 
+* The application is a simple Django-based marketplace designed to demonstrate common web vulnerabilities (OWASP Top 10).
 
 ----
 
@@ -33,13 +32,14 @@ common web vulnerabilities (OWASP Top 10).
 ## Vulnerabilities Included
 
 ### This project demonstrates the following flaws (OWASP 2021):
-    ```bash
-    A01:2021-Broken Access Control (Checkout & CSRF issues)
-    A03:2021-Injection (SQL Injection in Search)
-    A05:2021-Security Misconfiguration (Unsafe error handling)
-    A09:2021-Security Logging and Monitoring Failures (Sensitive data logging)
+    
+    * A01:2021-Broken Access Control (Checkout & CSRF issues)
+    * A03:2021-Injection (SQL Injection in Search)
+    * A05:2021-Security Misconfiguration (Unsafe error handling)
+    * A09:2021-Security Logging and Monitoring Failures (Sensitive data logging)
+
 The fixes for these flaws are included in the source code as commented-out blocks.Vulnerabilities Included
-```
+
 
 
 This prevents information leakage and improves application robustness.
