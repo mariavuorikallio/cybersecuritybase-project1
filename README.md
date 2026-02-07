@@ -1,7 +1,9 @@
 # Cybersecurity Base - Project 1
 
 * This is the first project for the Cybersecurity Base course (2026). 
-* The application is a simple Django-based marketplace designed to demonstrate common web vulnerabilities (OWASP Top 10).
+* The application is a simple Django-based marketplace designed to demonstrate common web vulnerabilities based on the **OWASP Top 10 (2021)**.
+
+**Note:** This application intentionally contains security vulnerabilities for educational purposes. Corresponding fixes are included as commented-out code in the same files.
 
 ----
 
@@ -9,8 +11,7 @@
 
 ### 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git
-   cd cybersecuritybase-project1
+   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git cd cybersecuritybase-project1
    ```
    
 ### 2. **Install Dependencies: Make sure you have Python installed. Install Django:**
