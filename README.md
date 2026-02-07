@@ -11,7 +11,8 @@
 
 ### 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git && cd cybersecuritybase-project1
+   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git
+   cd cybersecuritybase-project1
    ```
    
 ### 2. **Install Dependencies: Make sure you have Python installed. Install Django:**
