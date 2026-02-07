@@ -9,7 +9,7 @@
 
 ### 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/mariavuorikallio/cybersecuritybase-project1.git](https://github.com/mariavuorikallio/cybersecuritybase-project1.git)
+   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git
    cd cybersecuritybase-project1
    ```
    
@@ -29,13 +29,17 @@
    ```
 ### The application will be available at http://127.0.0.1:8000/.
 
-## Vulnerabilities Included
+## Vulnerabilities and Fixes
 
-### This project demonstrates the following flaws (OWASP 2021):
-    
-    * A01:2021-Broken Access Control (Checkout & CSRF issues)
-    * A03:2021-Injection (SQL Injection in Search)
-    * A05:2021-Security Misconfiguration (Unsafe error handling)
-    * A09:2021-Security Logging and Monitoring Failures (Sensitive data logging)
+This project demonstrates five security flaws based on the **OWASP Top 10: 2021** list. Each flaw is present in the active code, and its corresponding fix is provided as a commented-out code block directly below the vulnerability.
 
-The fixes for these flaws are included in the source code as commented-out blocks.Vulnerabilities Included
+### Demonstrated Flaws:
+* **A01:2021 – Broken Access Control:** * CSRF vulnerability in the "Add to Cart" functionality.
+    * Unprotected checkout page accessible without authentication.
+* **A03:2021 – Injection:** * SQL Injection vulnerability in the product search feature.
+* **A05:2021 – Security Misconfiguration:** * Improper error handling in product details, leading to potential information disclosure.
+* **A09:2021 – Security Logging and Monitoring Failures:** * Sensitive session data (cart contents) being printed to server logs.
+
+For detailed descriptions and steps to reproduce each flaw, please refer to the project report.
+
+
