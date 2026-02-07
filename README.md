@@ -39,7 +39,3 @@
     * A09:2021-Security Logging and Monitoring Failures (Sensitive data logging)
 
 The fixes for these flaws are included in the source code as commented-out blocks.Vulnerabilities Included
-
-
-
-This prevents information leakage and improves application robustness.
