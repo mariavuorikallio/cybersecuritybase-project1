@@ -11,7 +11,7 @@
 
 ### 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git cd cybersecuritybase-project1
+   git clone https://github.com/mariavuorikallio/cybersecuritybase-project1.git && cd cybersecuritybase-project1
    ```
    
 ### 2. **Install Dependencies: Make sure you have Python installed. Install Django:**
@@ -41,6 +41,8 @@ This project demonstrates five security flaws based on the **OWASP Top 10: 2021*
 * **A05:2021 – Security Misconfiguration:** * Improper error handling in product details, leading to potential information disclosure.
 * **A09:2021 – Security Logging and Monitoring Failures:** * Sensitive session data (cart contents) being printed to server logs.
 
-For detailed descriptions and steps to reproduce each flaw, please refer to the project report.
+Screenshots demonstrating each flaw before and after the fix can be found in the `screenshots/` directory.
+
+For detailed descriptions, exploit steps, and fixes, please refer to the project report submitted to the course platform.
 
 
